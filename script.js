@@ -1,36 +1,53 @@
-
 let createdDiv;
-let gridNum = 16;
+let gridNum = 3;
 const divContainer = document.getElementById("container");
 
-function createDiv() {
-    const newDiv = document.createElement("div");
-    createdDiv = newDiv;
-    newDiv.classList.add("grid");
-    return createdDiv;
-}
+function createDiv(gridNum) {
 
-
-function divGrid() {
-    for (let i = 0; i < gridNum; i++) {
-        createDiv();
+    divContainer.style.gridTemplateColumns = `repeat(${gridNum}, auto)`;
+    
+    for (let i = 0; i < gridNum * gridNum; i++) {
+        const newDiv = document.createElement("div");
+        createdDiv = newDiv;
+        createdDiv.classList.add("grid");
         divContainer.appendChild(createdDiv);
-        if (i % 2 === 0) {
-            createdDiv.style.backgroundColor = "yellow";
-        }
     }
+    
+    clear();
+    sketch();
+}
+createDiv(gridNum);
 
+function sketch() {
+    let cell = document.querySelectorAll(".grid");
+    for (let i = 0; i < cell.length; i++) {
+        cell[i].addEventListener("mouseover", (e) => {
+            e.target.style.backgroundColor = "black";
+        });
+    }
 }
 
-createDiv();
-divGrid();
+function clear() {
+    const clear = document.getElementById("clear");
+    clear.addEventListener("click", function() {
+        let cell = document.querySelectorAll(".grid");
+        for (let i = 0; i < cell.length; i++) {
+            cell[i].style.backgroundColor = "white";
+        }
+    });
+}
 
+const resize = document.getElementById("resize");
+resize.addEventListener("click", function() {
+    // prompt("Select size: ");
+    // gridNum = prompt;
+    // createDiv(gridNum);
+    changeSize();
+});
 
+function changeSize() {
+    gridNum = prompt("Select size:");
+    createDiv(gridNum);
+}
 
-
-// newDiv.style.display = "grid";
-// newDiv.style.gridTemplateColumns = "repeat(16, 12px)";
-// newDiv.style.gridTemplateRows = "50px";
-// newDiv.style.border = "50px";
-// newDiv.style.backgroundColor = "yellow";
-// newDiv.style.width = "50%";
+// sketch();
