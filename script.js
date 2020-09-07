@@ -1,5 +1,5 @@
 let createdDiv;
-let gridNum = 3;
+let gridNum = 16;
 const divContainer = document.getElementById("container");
 
 function createDiv(gridNum) {
@@ -39,15 +39,16 @@ function clear() {
 
 const resize = document.getElementById("resize");
 resize.addEventListener("click", function() {
-    // prompt("Select size: ");
-    // gridNum = prompt;
-    // createDiv(gridNum);
     changeSize();
 });
 
+
 function changeSize() {
+    var removeDiv = document.getElementsByClassName("grid");
+    for (let i = removeDiv.length - 1; i >= 0; i--) {
+        removeDiv[i].remove();
+    }
+
     gridNum = prompt("Select size:");
     createDiv(gridNum);
 }
-
-// sketch();

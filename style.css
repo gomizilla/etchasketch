@@ -13,7 +13,6 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-top: 40px;
-    background-color: yellow;
     padding: 10px;
     border-radius: 0px;
 }
@@ -22,34 +21,17 @@ body {
     display: grid;
     height: 600px;
     grid-template-columns: repeat(16, auto);
-    background-color: purple;
-    grid-gap: 5px;
+    grid-gap: 0px;
     padding: 0px;
     margin-left: auto;
     margin-right: auto;
     border: solid;
     border-width: 5px;
     border-radius: 0px;
-    border-color: green;
-    /* grid-template-rows: repeat(4, 100px); */
-    /* justify-content: center;
-    grid-gap: 5px;
-    background: black;
-    color: white; */
-    
+    border-color: red;   
 }
 
 .grid {
-    display: grid;
     grid-gap: 0px;
     margin: 0px;
-    /* background-color: red; */
-    /* grid-template-columns: 50px 50px 50px 50px;
-    grid-template-rows: 50px 50px 50px 50px;
-    grid-gap: 1px 9px;
-    background-color: red; */
 }
-
-/* .grid:hover {
-    background-color: blue;
-} */
